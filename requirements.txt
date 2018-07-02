@@ -1,0 +1,7 @@
+PyMySQL==0.8.0
+aiomysql
+bcrypt
+tornado
+wit
+pycrypto
+beautifulsoup4

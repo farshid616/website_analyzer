@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <form action="/" method="POST">
+    URL: <input name="url" type="text"><br>
+    {% module xsrf_form_html() %}
+    <input type="submit">
+  </form>
+  {% for key,val in entries %}
+    <span style="font-size:{{val*10}}px;">
+      {{key}}
+    </span>
+  {% end %}
+{% end %}
+

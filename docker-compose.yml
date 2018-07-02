@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  mysql:
+    image: mysql/mysql-server:5.7
+    environment:
+      MYSQL_USER: octopus
+      MYSQL_PASSWORD: mysql
+      MYSQL_DATABASE: octopus
+    ports:
+      - "3306"
+
+  octopus:
+    depends_on:
+     - mysql
+    build: .
+    links:
+      - mysql
+    ports:
+      - "8888:8888"
+    command: --db_host=mysql
